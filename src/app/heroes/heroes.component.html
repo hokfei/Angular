@@ -1,10 +1,15 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
+<a href="https://angular.io/tutorial/toh-pt2#add-a-details-section">https://angular.io/tutorial/toh-pt2#add-a-details-section</a>
+<h2>{{hero1.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero1.id}}</div>
 <div>
   <label>name:
-    <input [(ngModel)]="hero.name" placeholder="name"/>
+    <input [(ngModel)]="hero1.name" placeholder="name"/>
   </label>
 </div>
-<p>
-https://angular.io/tutorial/toh-pt2#displaying-heroes
-</p>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span>{{hero.name}}
+  </li>
+</ul>
