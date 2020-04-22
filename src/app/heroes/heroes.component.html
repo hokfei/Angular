@@ -1,4 +1,6 @@
-<a href="https://angular.io/tutorial/toh-pt2#add-a-details-section">https://angular.io/tutorial/toh-pt2#add-a-details-section</a>
+<a href="https://angular.io/tutorial/toh-pt2#add-a-details-section">
+  https://angular.io/tutorial/toh-pt3#create-a-feature-component
+</a>
 <h2>{{hero1.name | uppercase}} Details</h2>
 <div><span>id: </span>{{hero1.id}}</div>
 <div>
@@ -6,10 +8,20 @@
     <input [(ngModel)]="hero1.name" placeholder="name"/>
   </label>
 </div>
-
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}}</h2>
+  <div>
+    <span>id: </span>{{selectedHero.id}}
+  </div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </label>
+  </div>
+</div>
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span>{{hero.name}}
   </li>
 </ul>
